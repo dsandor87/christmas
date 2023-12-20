@@ -16,6 +16,7 @@ import FireWorks from "./FireWorks";
 import LumaWorld from "./LumaWorld";
 
 export default function SnowGlobeModel(props) {
+  console.log(props, "opopopopojghjb-==-=");
   const { nodes, materials } = useGLTF("/snowglobe-transformed.glb");
   const footer = document.querySelector(".footer");
   const snowGlobeRef = useRef();
@@ -152,13 +153,43 @@ export default function SnowGlobeModel(props) {
         <SnowFlakes count={2000} />
       </mesh>
       {!props.isMobile && <LumaWorld visible={insideMesh} />}
-      <Texts nameFromUrl={nameFromUrl} />
+      <Texts nameFromUrl={nameFromUrl} isMobile={props.isMobile} />
     </group>
   );
 }
 useGLTF.preload("/snowglobe-transformed.glb");
 
-export function Texts({ nameFromUrl }) {
+const pathTextMapping = {
+  Rita: "Boldog Karácsonyt az egész Családnak ",
+  Ron: "Wishing you a season filled with warm moments and cherished memories",
+  Sandor:
+    "May this holiday season bring you peace, joy, and cherished moments,",
+  Campbell:
+    "Wishing you a season filled with warm moments and cherished memories,",
+  Andrew: "May the magic of the holiday season stay with you all year long,",
+  Joe: "Here's to a wonderful holiday season and a happy New Year,",
+  Phil: "May your holidays sparkle with joy and laughter,",
+  Charlie:
+    "Wishing you a festive season filled with love, joy, and prosperity,",
+  Taylor:
+    "Hope this holiday season is filled with much joy, warmth, and happiness,",
+  Riley: "Season's greetings and best wishes for a New Year filled with joy,",
+  Kennedy: "May the holiday spirit bring you and yours love and laughter,",
+  Casey:
+    "Sending you warm wishes for a holiday season brimming with joy and peace,",
+  Bailey:
+    "May the joy and festivities continue to radiate in your lives, long after Christmas is gone,",
+};
+const second = { Rita: "Sikerekben gazdag boldog Új Évet Kívánok \n Sándor" };
+
+export function Texts({ nameFromUrl, isMobile }) {
+  console.log(isMobile, "isisisis-==-==");
+  const textToShow = pathTextMapping[nameFromUrl] || "Happy Holidays";
+
+  const text2 =
+    second[nameFromUrl] ||
+    "Wishing you a Merry Christmas filled withlove, joy and happiness.";
+
   return (
     <>
       <Text3D
@@ -166,6 +197,7 @@ export function Texts({ nameFromUrl }) {
         size={0.3}
         font="/Inter_Bold.json"
         position={[-2.8, 3.3, 10]}
+        color="red"
       >
         SANDOR DESI
         <meshPhysicalMaterial
@@ -183,9 +215,8 @@ export function Texts({ nameFromUrl }) {
           fontSize="0.45"
           lineHeight={1.16}
         >
-          May this holiday season bring you peace, joy, and cherished moments,
-          {nameFromUrl}.{"\n\n"} Wishing you a Merry Christmas filled with love
-          and happiness."
+          {textToShow}
+          {nameFromUrl}.{"\n\n"} {text2}
         </Text>
         {/* ... other Text components ... */}
       </Billboard>

@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Texts } from "./SnowGlobeModel";
 
-export default function Overlay({ inside, setInside }) {
+export default function Overlay({ inside, setInside, name }) {
   const [headerStyle, setHeaderStyle] = useState({});
+
+  const hu = ["Rita", "Ani"];
 
   useEffect(() => {
     if (inside) {
@@ -36,16 +38,11 @@ export default function Overlay({ inside, setInside }) {
   return (
     <>
       <header style={headerStyle}>
-        <img
-          draggable={false}
-          width="100%"
-          style={{ paddingBottom: "10px" }}
-          src="/merry_xmas.svg"
-        />
+        <img draggable={false} width="100%" src="/merry_xmas.svg" />
       </header>
       <footer className="footer">
         <button className="button--explore" onClick={() => setInside(!inside)}>
-          Click me 🎄
+          {hu.includes(name) ? `Meglepetés 🎄` : `Click me 🎄`}
         </button>
         <br />
       </footer>
