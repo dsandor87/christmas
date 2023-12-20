@@ -161,6 +161,8 @@ useGLTF.preload("/snowglobe-transformed.glb");
 
 const pathTextMapping = {
   Rita: "Boldog Karácsonyt az egész Családnak ",
+  Ani: "Boldog Karácsonyt az egész Családnak ",
+
   Ron: "Wishing you a season filled with warm moments and cherished memories",
   Sandor:
     "May this holiday season bring you peace, joy, and cherished moments,",
@@ -180,7 +182,10 @@ const pathTextMapping = {
   Bailey:
     "May the joy and festivities continue to radiate in your lives, long after Christmas is gone,",
 };
-const second = { Rita: "Sikerekben gazdag boldog Új Évet Kívánok \n Sándor" };
+const second = {
+  Rita: "Sikerekben gazdag boldog Új Évet Kívánok \n Sándor",
+  Ani: "Sikerekben gazdag boldog Új Évet Kívánok \n Sándor",
+};
 
 export function Texts({ nameFromUrl, isMobile }) {
   console.log(isMobile, "isisisis-==-==");
