@@ -4,7 +4,7 @@ import { Texts } from "./SnowGlobeModel";
 export default function Overlay({ inside, setInside, name }) {
   const [headerStyle, setHeaderStyle] = useState({});
 
-  const hu = ["Rita", "Ani"];
+  const hu = ["Rita", "Ani", "Natasa", "Anyu", "Laci", "Ibolya", "Magdi"];
 
   useEffect(() => {
     if (inside) {

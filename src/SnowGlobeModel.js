@@ -160,40 +160,47 @@ export default function SnowGlobeModel(props) {
 useGLTF.preload("/snowglobe-transformed.glb");
 
 const pathTextMapping = {
+  Magdi: "Boldog Karácsonyt az egész Családnak ",
+  Donna: "May the spirit of Christmas bring you cherished memories and peace ",
+  Oz: "May this holiday season bring you peace, joy, and cherished moments,",
   Rita: "Boldog Karácsonyt az egész Családnak ",
+  Anyu: "Boldog Karácsonyt ",
+  Kalim: "May this holiday season bring you peace, joy, and cherished moments,",
   Ani: "Boldog Karácsonyt az egész Családnak ",
-
+  Natasa: "Boldog Karácsonyt az egész Családnak ",
+  Laci: "Boldog Karácsonyt ",
+  Gyongyi: "Boldog Karácsonyt az egész Családnak ",
+  Theo: "May your holidays sparkle with joy and laughter,",
+  Oliver: "May the magic of the holiday season stay with you all year long,",
   Ron: "Wishing you a season filled with warm moments and cherished memories",
-  Sandor:
-    "May this holiday season bring you peace, joy, and cherished moments,",
   Campbell:
-    "Wishing you a season filled with warm moments and cherished memories,",
+    "May this holiday season bring you peace, joy, and cherished moments,",
+  Charlie: "May the magic of the holiday season stay with you all year long,",
   Andrew: "May the magic of the holiday season stay with you all year long,",
-  Joe: "Here's to a wonderful holiday season and a happy New Year,",
+  Joe: "May the spirit of Christmas bring you cherished memories and peace",
   Phil: "May your holidays sparkle with joy and laughter,",
-  Charlie:
-    "Wishing you a festive season filled with love, joy, and prosperity,",
-  Taylor:
-    "Hope this holiday season is filled with much joy, warmth, and happiness,",
-  Riley: "Season's greetings and best wishes for a New Year filled with joy,",
-  Kennedy: "May the holiday spirit bring you and yours love and laughter,",
-  Casey:
-    "Sending you warm wishes for a holiday season brimming with joy and peace,",
-  Bailey:
-    "May the joy and festivities continue to radiate in your lives, long after Christmas is gone,",
+  Will: "Celebrate the wonder and excitement of the festive season",
+  Alex: "May the spirit of Christmas bring you cherished memories and peace, ",
+  Dario: "May this holiday season bring you peace, joy, and cherished moments,",
 };
 const second = {
+  Anyu: "Sikerekben gazdag boldog Új Évet Kívánok \n Fiad Sanyi",
+
   Rita: "Sikerekben gazdag boldog Új Évet Kívánok \n Sándor",
   Ani: "Sikerekben gazdag boldog Új Évet Kívánok \n Sándor",
+  Natasa: "Sikerekben gazdag boldog Új Évet Kívánok \n Sándor",
+  Laci: "Sikerekben gazdag boldog Új Évet Kívánok \n Sanyi",
+  Gyongyi: "Sikerekben gazdag boldog Új Évet Kívánok \n Sanyi",
+  Magdi: "Sikerekben gazdag boldog Új Évet Kívánok \n Sanyi",
 };
 
 export function Texts({ nameFromUrl, isMobile }) {
   console.log(isMobile, "isisisis-==-==");
-  const textToShow = pathTextMapping[nameFromUrl] || "Happy Holidays";
+  const textToShow = pathTextMapping[nameFromUrl] || "Happy Holidays ";
 
   const text2 =
     second[nameFromUrl] ||
-    "Wishing you a Merry Christmas filled withlove, joy and happiness.";
+    "Wishing you a Merry Christmas filled with love, joy and happiness. \nSándor";
 
   return (
     <>

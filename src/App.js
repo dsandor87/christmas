@@ -10,6 +10,11 @@ export default function App() {
   const [inside, setInside] = useState(false);
   const [urlSegment, setUrlSegment] = useState(""); // State to store the URL segment
   const [orientation, setOrientation] = useState(window.orientation); // Add orientation state
+  const [audio] = useState(new Audio("/122.mp3")); // Audio file
+  const [playing, setPlaying] = useState(false); // Audio play state
+
+  // Enable looping of the audio
+  audio.loop = true;
 
   const isMobile = window.innerWidth < 768;
   const canvasConfig = {
@@ -18,7 +23,10 @@ export default function App() {
     stencil: false,
     alpha: false,
   };
-  console.log(orientation, "ori =-=-=-=-=-=-=-==-=-=");
+
+  useEffect(() => {
+    playing ? audio.play() : audio.pause();
+  }, [playing, audio]);
 
   useEffect(() => {
     const handleOrientationChange = () => {
@@ -37,7 +45,11 @@ export default function App() {
     };
   }, []);
 
-  const hu = ["Rita", "Ani"];
+  useEffect(() => {
+    setPlaying(inside);
+  }, [inside]);
+
+  const hu = ["Rita", "Ani", "Natasa", "Anyu", "Laci", "Ibolya", "Magdi"];
 
   if (orientation === 0) {
     return (
@@ -46,14 +58,14 @@ export default function App() {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          height: "100vh", // Full viewport height
-          fontSize: "2em", // Larger text
+          height: "100vh",
+          fontSize: "2em",
           textAlign: "center",
-          padding: "20px", // Padding for smaller screens
+          padding: "20px",
         }}
       >
         {hu.includes(urlSegment)
-          ? `"Kérlek, fordítsd a telefont tájkép/horizontalis módba ⤵️ `
+          ? `"Kérlek, fordítsd a telefont tájkép/horizontalis módba ⤵️"`
           : `Please turn your device to landscape mode. ⤵️`}
       </div>
     );
@@ -61,7 +73,6 @@ export default function App() {
 
   return (
     <>
-      {/* {urlSegment && <div>URL Segment: {urlSegment}</div>} */}
       <Canvas
         gl={canvasConfig}
         camera={{ position: [0, 0, 5], fov: 35, far: 20000 }}
@@ -81,7 +92,6 @@ export default function App() {
       </Canvas>
       <Overlay inside={inside} setInside={setInside} name={urlSegment} />
       <Loader />
-      {/* Optionally render the URL segment value somewhere in your component */}
     </>
   );
 }
