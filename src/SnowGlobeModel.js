@@ -179,7 +179,7 @@ const pathTextMapping = {
   Andrew: "May the magic of the holiday season stay with you all year long,",
   Joe: "May the spirit of Christmas bring you cherished memories and peace",
   Phil: "May your holidays sparkle with joy and laughter,",
-  Will: "Celebrate the wonder and excitement of the festive season",
+  Will: "Celebrate the wonder and excitement of the festive season ",
   Alex: "May the spirit of Christmas bring you cherished memories and peace, ",
   Dario: "May this holiday season bring you peace, joy, and cherished moments,",
 };
